@@ -1,4 +1,4 @@
-package Activities;
+package com.example.app_coffee_store_manager.Activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;

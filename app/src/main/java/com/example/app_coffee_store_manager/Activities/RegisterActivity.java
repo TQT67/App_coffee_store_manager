@@ -1,4 +1,4 @@
-package Activities;
+package com.example.app_coffee_store_manager.Activities;
 
 import static com.sinhvien.orderdrinkapp.R.*;
 
