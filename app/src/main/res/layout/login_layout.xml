@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LoginActivity"
+    android:background="@color/colorPrimary"
+    android:padding="30dp"
+    android:transitionName="transition_login"
+    android:id="@+id/layoutLogin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/img_login_backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="backFromLogin"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logintittle"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/muli_black"
+            android:textAllCaps="true"
+            />
+    </LinearLayout>
+</ScrollView>

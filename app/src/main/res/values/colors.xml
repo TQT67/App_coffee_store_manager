@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.OrderDrinkApp" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#fece2f</color>
+    <color name="colorPrimaryDark">#ffa600</color>
+    <color name="colorAccent">#272727</color>
+    <color name="lightwhite">#f5f5f5</color>
+    <color name="cream">#f1e9ce</color>
+    <color name="black50">#59000000</color>
+    <color name="grey">#CCD1D1</color>
 
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
-    </style>
-
-
-    <!-- Menu style -->
-    <style name="navigationTheme">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
-    </style>
-
-    <!-- Popup style -->
-    <style name="PopUpActivity" parent="Theme.MaterialComponents.Light.Dialog">
-    </style>
 </resources>
