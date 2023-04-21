@@ -1,8 +1,12 @@
+package com.sinhvien.orderdrinkapp.Database;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public abstract class CreateDatabase extends SQLiteOpenHelper {
+import androidx.annotation.Nullable;
+
+public class CreateDatabase extends SQLiteOpenHelper {
 
     public static String TBL_NHANVIEN = "NHANVIEN";
     public static String TBL_MON = "MON";
@@ -63,5 +67,50 @@ public abstract class CreateDatabase extends SQLiteOpenHelper {
         super(context, "OrderDrink", null, 1);
     }
 
+    //thực hiện tạo bảng
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String tblNHANVIEN = "CREATE TABLE " +TBL_NHANVIEN+ " ( " +TBL_NHANVIEN_MANV+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_NHANVIEN_HOTENNV+ " TEXT, " +TBL_NHANVIEN_TENDN+ " TEXT, " +TBL_NHANVIEN_MATKHAU+ " TEXT, " +TBL_NHANVIEN_EMAIL+ " TEXT, "
+                +TBL_NHANVIEN_SDT+ " TEXT, " +TBL_NHANVIEN_GIOITINH+ " TEXT, " +TBL_NHANVIEN_NGAYSINH+ " TEXT , "+TBL_NHANVIEN_MAQUYEN+" INTEGER)";
 
+        String tblQUYEN = "CREATE TABLE " +TBL_QUYEN+ " ( " +TBL_QUYEN_MAQUYEN+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_QUYEN_TENQUYEN+ " TEXT)" ;
+
+        String tblBAN = "CREATE TABLE " +TBL_BAN+ " ( " +TBL_BAN_MABAN+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_BAN_TENBAN+ " TEXT, " +TBL_BAN_TINHTRANG+ " TEXT )";
+
+        String tblMON = "CREATE TABLE " +TBL_MON+ " ( " +TBL_MON_MAMON+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_MON_TENMON+ " TEXT, " +TBL_MON_GIATIEN+ " TEXT, " +TBL_MON_TINHTRANG+ " TEXT, "
+                +TBL_MON_HINHANH+ " BLOB, "+TBL_MON_MALOAI+ " INTEGER )";
+
+        String tblLOAIMON = "CREATE TABLE " +TBL_LOAIMON+ " ( " +TBL_LOAIMON_MALOAI+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_LOAIMON_HINHANH+ " BLOB, " +TBL_LOAIMON_TENLOAI+ " TEXT)" ;
+
+        String tblDONDAT = "CREATE TABLE " +TBL_DONDAT+ " ( " +TBL_DONDAT_MADONDAT+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_DONDAT_MABAN+ " INTEGER, " +TBL_DONDAT_MANV+ " INTEGER, " +TBL_DONDAT_NGAYDAT+ " TEXT, "+TBL_DONDAT_TONGTIEN+" TEXT,"
+                +TBL_DONDAT_TINHTRANG+ " TEXT )" ;
+
+        String tblCHITIETDONDAT = "CREATE TABLE " +TBL_CHITIETDONDAT+ " ( " +TBL_CHITIETDONDAT_MADONDAT+ " INTEGER, "
+                +TBL_CHITIETDONDAT_MAMON+ " INTEGER, " +TBL_CHITIETDONDAT_SOLUONG+ " INTEGER, "
+                + " PRIMARY KEY ( " +TBL_CHITIETDONDAT_MADONDAT+ "," +TBL_CHITIETDONDAT_MAMON+ "))";
+
+        db.execSQL(tblNHANVIEN);
+        db.execSQL(tblQUYEN);
+        db.execSQL(tblBAN);
+        db.execSQL(tblMON);
+        db.execSQL(tblLOAIMON);
+        db.execSQL(tblDONDAT);
+        db.execSQL(tblCHITIETDONDAT);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+    //mở kết nối csdl
+    public SQLiteDatabase open(){
+        return this.getWritableDatabase();
+    }
 }
