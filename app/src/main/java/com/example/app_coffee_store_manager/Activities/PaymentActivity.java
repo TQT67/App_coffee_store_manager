@@ -1,8 +1,4 @@
-package com.sinhvien.orderdrinkapp.Activities;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+package com.example.app_coffee_store_manager.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterDisplayPayment;
 import com.sinhvien.orderdrinkapp.DAO.BanAnDAO;
 import com.sinhvien.orderdrinkapp.DAO.DonDatDAO;
 import com.sinhvien.orderdrinkapp.DAO.ThanhToanDAO;
 import com.sinhvien.orderdrinkapp.DTO.ThanhToanDTO;
-import com.sinhvien.orderdrinkapp.Fragments.DisplayCategoryFragment;
-import com.sinhvien.orderdrinkapp.Fragments.DisplayTableFragment;
 import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
