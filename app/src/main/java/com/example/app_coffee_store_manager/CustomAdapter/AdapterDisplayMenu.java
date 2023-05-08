@@ -9,30 +9,40 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.app_coffee_store_manager.DTO.MonDTO;
 import com.example.app_coffee_store_manager.R;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class AdapterDisplayMenu extends BaseAdapter {
 
     Context context;
     int layout;
-
+    List<MonDTO> monDTOList;
     Viewholder viewholder;
 
     //constructor
+    public AdapterDisplayMenu(Context context, int layout, List<MonDTO> monDTOList){
+        this.context = context;
+        this.layout = layout;
+        this.monDTOList = monDTOList;
 
+    }
     @Override
     public int getCount() {
-        return 0;
+        return monDTOList.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Object getItem(int position) {
+        return monDTOList.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int position) {
         return 0;
     }
 
@@ -48,6 +58,9 @@ public class AdapterDisplayMenu extends BaseAdapter {
         }else {
             viewholder = (Viewholder) view.getTag();
         }
+        MonDTO monDTO = monDTOList.get(position);
+
+
         return view;
     }
 

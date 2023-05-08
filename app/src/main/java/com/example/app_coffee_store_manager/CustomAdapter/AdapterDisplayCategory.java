@@ -13,6 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.app_coffee_store_manager.DAO.LoaiMonDAO;
+import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
 import com.example.app_coffee_store_manager.R;
 
 import java.io.FileNotFoundException;
@@ -25,22 +27,27 @@ public class AdapterDisplayCategory extends BaseAdapter {
 
     Context context;
     int layout;
-
+    List<LoaiMonDTO> loaiMonDTOList ;
     ViewHolder viewHolder;
 
-
+    //constructor
+    public AdapterDisplayCategory(Context context, int layout, List<LoaiMonDTO> loaiMonDTOList){
+        this.context = context;
+        this.layout = layout;
+        this.loaiMonDTOList = loaiMonDTOList;
+    }
     @Override
     public int getCount() {
-        return 0;
+        return loaiMonDTOList.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Object getItem(int position) {
+        return loaiMonDTOList.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int position) {
         return 0;
     }
 
@@ -59,6 +66,7 @@ public class AdapterDisplayCategory extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) view.getTag();
         }
+        LoaiMonDTO loaiMonDTO = loaiMonDTOList.get(position);
 
         return view;
     }

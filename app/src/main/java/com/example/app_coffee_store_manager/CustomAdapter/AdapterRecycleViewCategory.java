@@ -12,17 +12,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
 import com.example.app_coffee_store_manager.R;
 
 import java.util.List;
-
 public class AdapterRecycleViewCategory extends RecyclerView.Adapter<AdapterRecycleViewCategory.ViewHolder>{
 
     Context context;
     int layout;
+    List<LoaiMonDTO> loaiMonDTOList;
 
-
+    public AdapterRecycleViewCategory(Context context,int layout, List<LoaiMonDTO> loaiMonDTOList){
+        this.context = context;
+        this.layout = layout;
+        this.loaiMonDTOList = loaiMonDTOList;
+    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(layout,parent,false);
@@ -30,13 +34,13 @@ public class AdapterRecycleViewCategory extends RecyclerView.Adapter<AdapterRecy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+    public void onBindViewHolder(AdapterRecycleViewCategory.ViewHolder holder, int position) {
+        LoaiMonDTO loaiMonDTO = loaiMonDTOList.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return loaiMonDTOList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

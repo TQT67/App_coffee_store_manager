@@ -1,5 +1,6 @@
 package com.example.app_coffee_store_manager.CustomAdapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,41 +12,56 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.app_coffee_store_manager.Activities.HomeActivity;
+import com.example.app_coffee_store_manager.DAO.BanAnDAO;
+import com.example.app_coffee_store_manager.DAO.DonDatDAO;
+import com.example.app_coffee_store_manager.DTO.BanAnDTO;
+import com.example.app_coffee_store_manager.DTO.DonDatDTO;
+import com.example.app_coffee_store_manager.Fragments.DisplayCategoryFragment;
+import com.example.app_coffee_store_manager.Fragments.DisplayMenuFragment;
+import com.example.app_coffee_store_manager.Fragments.DisplayTableFragment;
 import com.example.app_coffee_store_manager.R;
-import java.util.List;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 public class AdapterDisplayTable extends BaseAdapter implements View.OnClickListener{
 
     Context context;
     int layout;
-
+    List<BanAnDTO> banAnDTOList;
     ViewHolder viewHolder;
-
+    BanAnDAO banAnDAO;
+    DonDatDAO donDatDAO;
     FragmentManager fragmentManager;
 
     public AdapterDisplayTable(Context context, int layout){
         this.context = context;
         this.layout = layout;
+        this.banAnDTOList = banAnDTOList;
     }
 
 
     @Override
     public int getCount() {
-        return 0;
+        return banAnDTOList.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Object getItem(int position) {
+        return banAnDTOList.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int position) {
         return 0;
     }
 
@@ -62,6 +78,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         }else {
             viewHolder = (ViewHolder) view.getTag();
         }
+        BanAnDTO banAnDTO = banAnDTOList.get(position);
 
         //đổi hình theo tình trạng
 
