@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.app_coffee_store_manager.DTO.ThanhToanDTO;
 import com.example.app_coffee_store_manager.R;
 
 import java.util.List;
@@ -18,17 +19,22 @@ public class AdapterDisplayPayment extends BaseAdapter {
 
     Context context;
     int layout;
-
+    List<ThanhToanDTO> thanhToanDTOList;
     ViewHolder viewHolder;
 
+    public AdapterDisplayPayment(Context context, int layout, List<ThanhToanDTO> thanhToanDTOList){
+        this.context = context;
+        this.layout = layout;
+        this.thanhToanDTOList = thanhToanDTOList;
+    }
     @Override
     public int getCount() {
-        return 0;
+        return thanhToanDTOList.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Object getItem(int position) {
+        return thanhToanDTOList.get(position);
     }
 
     @Override
@@ -48,6 +54,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder)view.getTag();
         }
+        ThanhToanDTO thanhToanDTO = thanhToanDTOList.get(position);
 
         return view;
     }
