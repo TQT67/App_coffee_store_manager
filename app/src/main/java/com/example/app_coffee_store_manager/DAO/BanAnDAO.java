@@ -1,10 +1,15 @@
     package com.example.app_coffee_store_manager.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
     public class BanAnDAO { SQLiteDatabase database;
     public BanAnDAO(Context context){
@@ -48,5 +53,61 @@ import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
                 return false;
             }
         }
+        //Hàm lấy ds các bàn ăn đổ vào gridview
+        @SuppressLint("Range")
+        public List<BanAnDTO> LayTatCaBanAn(){
+            List<BanAnDTO> banAnDTOList = new ArrayList<BanAnDTO>();
+            String query = "SELECT * FROM " +CreateDatabase.TBL_BAN;
+            Cursor cursor = database.rawQuery(query,null);
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){
+                BanAnDTO banAnDTO = new BanAnDTO();
+                banAnDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_BAN_MABAN)));
+                banAnDTO.setTenBan(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_BAN_TENBAN)));
 
-}
+                banAnDTOList.add(banAnDTO);
+                cursor.moveToNext();
+            }
+            return banAnDTOList;
+        }
+
+        @SuppressLint("Range")
+        public String LayTinhTrangBanTheoMa(int maban){
+            String tinhtrang="";
+            String query = "SELECT * FROM "+CreateDatabase.TBL_BAN + " WHERE " +CreateDatabase.TBL_BAN_MABAN+ " = '" +maban+ "' ";
+            Cursor cursor = database.rawQuery(query,null);
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){
+                tinhtrang = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_MON_TINHTRANG));
+                cursor.moveToNext();
+            }
+
+            return tinhtrang;
+        }
+
+        public boolean CapNhatTinhTrangBan(int maban, String tinhtrang){
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(CreateDatabase.TBL_BAN_TINHTRANG,tinhtrang);
+
+            long ktra = database.update(CreateDatabase.TBL_BAN,contentValues,CreateDatabase.TBL_BAN_MABAN+ " = '"+maban+"' ",null);
+            if(ktra != 0){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+        @SuppressLint("Range")
+        public String LayTenBanTheoMa(int maban){
+            String tenban="";
+            String query = "SELECT * FROM "+CreateDatabase.TBL_BAN + " WHERE " +CreateDatabase.TBL_BAN_MABAN+ " = '" +maban+ "' ";
+            Cursor cursor = database.rawQuery(query,null);
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){
+                tenban = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_BAN_TENBAN));
+                cursor.moveToNext();
+            }
+
+            return tenban;
+        }
+    }
