@@ -1,10 +1,8 @@
-package com.sinhvien.orderdrinkapp.Database;
+package com.example.app_coffee_store_manager.DataBase;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
 
 public class CreateDatabase extends SQLiteOpenHelper {
 
