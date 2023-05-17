@@ -46,14 +46,17 @@ public class NhanVienDAO    {
                 CreateDatabase.TBL_NHANVIEN_MANV+" = "+manv,null);
         return ktra;
     }
-    public boolean KtraTonTaiNV(){
-        String query = "SELECT * FROM "+CreateDatabase.TBL_NHANVIEN;
-        Cursor cursor =database.rawQuery(query,null);
-        if(cursor.getCount() != 0){
-            return true;
-        }else {
-            return false;
+    public int KiemTraDN(String tenDN, String matKhau){
+        String query = "SELECT * FROM " +CreateDatabase.TBL_NHANVIEN+ " WHERE "
+                +CreateDatabase.TBL_NHANVIEN_TENDN +" = '"+ tenDN+"' AND "+CreateDatabase.TBL_NHANVIEN_MATKHAU +" = '" +matKhau +"'";
+        int manv = 0;
+        Cursor cursor = database.rawQuery(query,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            manv = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_NHANVIEN_MANV)) ;
+            cursor.moveToNext();
         }
+        return manv;
     }
 
 }
