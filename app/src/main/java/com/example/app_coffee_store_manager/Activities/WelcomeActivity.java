@@ -8,13 +8,13 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sinhvien.orderdrinkapp.R;
+import com.example.app_coffee_store_manager.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);0
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
 
     }

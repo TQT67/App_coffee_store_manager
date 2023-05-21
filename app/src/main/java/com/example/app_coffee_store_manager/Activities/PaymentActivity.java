@@ -12,12 +12,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterDisplayPayment;
-import com.sinhvien.orderdrinkapp.DAO.BanAnDAO;
-import com.sinhvien.orderdrinkapp.DAO.DonDatDAO;
-import com.sinhvien.orderdrinkapp.DAO.ThanhToanDAO;
-import com.sinhvien.orderdrinkapp.DTO.ThanhToanDTO;
-import com.sinhvien.orderdrinkapp.R;
+import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayPayment;
+import com.example.app_coffee_store_manager.DAO.BanAnDAO;
+import com.example.app_coffee_store_manager.DAO.DonDatDAO;
+import com.example.app_coffee_store_manager.DAO.ThanhToanDAO;
+import com.example.app_coffee_store_manager.DTO.ThanhToanDTO;
+import com.example.app_coffee_store_manager.R;
 
 import java.util.List;
 

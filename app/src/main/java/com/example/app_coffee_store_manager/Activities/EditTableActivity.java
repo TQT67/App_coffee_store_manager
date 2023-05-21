@@ -8,8 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.sinhvien.orderdrinkapp.DAO.BanAnDAO;
-import com.sinhvien.orderdrinkapp.R;
+import com.example.app_coffee_store_manager.DAO.BanAnDAO;
+import com.example.app_coffee_store_manager.R;
 
 public class EditTableActivity extends AppCompatActivity {
 

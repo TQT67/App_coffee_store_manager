@@ -14,6 +14,7 @@ import com.example.app_coffee_store_manager.R;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterDisplayPayment extends BaseAdapter {
 
@@ -27,6 +28,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
         this.layout = layout;
         this.thanhToanDTOList = thanhToanDTOList;
     }
+
     @Override
     public int getCount() {
         return thanhToanDTOList.size();
@@ -50,16 +52,30 @@ public class AdapterDisplayPayment extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
+            viewHolder.img_custompayment_HinhMon = (CircleImageView)view.findViewById(R.id.img_custompayment_HinhMon);
+            viewHolder.txt_custompayment_TenMon = (TextView)view.findViewById(R.id.txt_custompayment_TenMon);
+            viewHolder.txt_custompayment_SoLuong = (TextView)view.findViewById(R.id.txt_custompayment_SoLuong);
+            viewHolder.txt_custompayment_GiaTien = (TextView)view.findViewById(R.id.txt_custompayment_GiaTien);
+
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder)view.getTag();
         }
         ThanhToanDTO thanhToanDTO = thanhToanDTOList.get(position);
 
+        viewHolder.txt_custompayment_TenMon.setText(thanhToanDTO.getTenMon());
+        viewHolder.txt_custompayment_SoLuong.setText(String.valueOf(thanhToanDTO.getSoLuong()));
+        viewHolder.txt_custompayment_GiaTien.setText(String.valueOf(thanhToanDTO.getGiaTien())+" đ");
+
+        byte[] paymentimg = thanhToanDTO.getHinhAnh();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(paymentimg,0,paymentimg.length);
+        viewHolder.img_custompayment_HinhMon.setImageBitmap(bitmap);
+
         return view;
     }
 
     public class ViewHolder{
+        CircleImageView img_custompayment_HinhMon;
         TextView txt_custompayment_TenMon, txt_custompayment_SoLuong, txt_custompayment_GiaTien;
     }
 }

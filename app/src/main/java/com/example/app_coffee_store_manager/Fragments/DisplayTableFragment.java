@@ -18,9 +18,12 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
+import com.example.app_coffee_store_manager.Activities.AddTableActivity;
+import com.example.app_coffee_store_manager.Activities.EditTableActivity;
 import com.example.app_coffee_store_manager.Activities.HomeActivity;
 import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayTable;
 import com.example.app_coffee_store_manager.DAO.BanAnDAO;
@@ -75,7 +78,11 @@ public class DisplayTableFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displaytable_layout,container,false);
         setHasOptionsMenu(true);
+        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý bàn");
+
         GVDisplayTable = (GridView)view.findViewById(R.id.gvDisplayTable);
+        banAnDAO = new BanAnDAO(getActivity());
+
         HienThiDSBan();
 
         registerForContextMenu(GVDisplayTable);
@@ -86,6 +93,7 @@ public class DisplayTableFragment extends Fragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
+        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
     }
 
     //Xử lí cho từng trường hợp trong contextmenu
@@ -94,20 +102,45 @@ public class DisplayTableFragment extends Fragment {
         int id = item.getItemId();
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int vitri = menuInfo.position;
+        int maban = banAnDTOList.get(vitri).getMaBan();
+        switch(id){
+            case R.id.itEdit:
+                Intent intent = new Intent(getActivity(), EditTableActivity.class);
+                intent.putExtra("maban",maban);
+                resultLauncherEdit.launch(intent);
+                break;
 
-
+            case R.id.itDelete:
+                boolean ktraxoa = banAnDAO.XoaBanTheoMa(maban);
+                if(ktraxoa){
+                    HienThiDSBan();
+                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful),Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed),Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
         return super.onContextItemSelected(item);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        MenuItem itAddTable = menu.add(1,R.id.itAddTable,1,R.string.addTable);
+        itAddTable.setIcon(R.drawable.ic_baseline_add_24);
+        itAddTable.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
+        switch (id){
+            case R.id.itAddTable:
+                Intent iAddTable = new Intent(getActivity(), AddTableActivity.class);
+                resultLauncherAdd.launch(iAddTable);
+                break;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -119,6 +152,8 @@ public class DisplayTableFragment extends Fragment {
     }
 
     private void HienThiDSBan(){
+        banAnDTOList = banAnDAO.LayTatCaBanAn();
+        adapterDisplayTable = new AdapterDisplayTable(getActivity(),R.layout.custom_layout_displaytable,banAnDTOList);
         GVDisplayTable.setAdapter(adapterDisplayTable);
         adapterDisplayTable.notifyDataSetChanged();
     }

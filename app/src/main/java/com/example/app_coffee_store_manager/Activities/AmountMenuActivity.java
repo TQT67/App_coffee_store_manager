@@ -9,10 +9,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.sinhvien.orderdrinkapp.DAO.ChiTietDonDatDAO;
-import com.sinhvien.orderdrinkapp.DAO.DonDatDAO;
-import com.sinhvien.orderdrinkapp.DTO.ChiTietDonDatDTO;
-import com.sinhvien.orderdrinkapp.R;
+import com.example.app_coffee_store_manager.DAO.ChiTietDonDatDAO;
+import com.example.app_coffee_store_manager.DAO.DonDatDAO;
+import com.example.app_coffee_store_manager.DTO.ChiTietDonDatDTO;
+import com.example.app_coffee_store_manager.R;
 
 public class AmountMenuActivity extends AppCompatActivity {
 

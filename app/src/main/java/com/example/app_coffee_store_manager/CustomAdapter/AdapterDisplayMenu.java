@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.example.app_coffee_store_manager.DTO.MonDTO;
 import com.example.app_coffee_store_manager.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class AdapterDisplayMenu extends BaseAdapter {
@@ -29,8 +27,8 @@ public class AdapterDisplayMenu extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.monDTOList = monDTOList;
-
     }
+
     @Override
     public int getCount() {
         return monDTOList.size();
@@ -43,7 +41,7 @@ public class AdapterDisplayMenu extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return monDTOList.get(position).getMaMon();
     }
 
     @Override
@@ -54,12 +52,33 @@ public class AdapterDisplayMenu extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
+            viewholder.img_custommenu_HinhMon = (ImageView)view.findViewById(R.id.img_custommenu_HinhMon);
+            viewholder.txt_custommenu_TenMon = (TextView) view.findViewById(R.id.txt_custommenu_TenMon);
+            viewholder.txt_custommenu_TinhTrang = (TextView)view.findViewById(R.id.txt_custommenu_TinhTrang);
+            viewholder.txt_custommenu_GiaTien = (TextView)view.findViewById(R.id.txt_custommenu_GiaTien);
             view.setTag(viewholder);
         }else {
             viewholder = (Viewholder) view.getTag();
         }
         MonDTO monDTO = monDTOList.get(position);
+        viewholder.txt_custommenu_TenMon.setText(monDTO.getTenMon());
+        viewholder.txt_custommenu_GiaTien.setText(monDTO.getGiaTien()+" VNĐ");
 
+        //hiển thị tình trạng của món
+        if(monDTO.getTinhTrang().equals("true")){
+            viewholder.txt_custommenu_TinhTrang.setText("Còn món");
+        }else{
+            viewholder.txt_custommenu_TinhTrang.setText("Hết món");
+        }
+
+        //lấy hình ảnh
+        if(monDTO.getHinhAnh() != null){
+            byte[] menuimage = monDTO.getHinhAnh();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(menuimage,0,menuimage.length);
+            viewholder.img_custommenu_HinhMon.setImageBitmap(bitmap);
+        }else {
+            viewholder.img_custommenu_HinhMon.setImageResource(R.drawable.cafe_americano);
+        }
 
         return view;
     }
