@@ -1,6 +1,6 @@
 package com.example.app_coffee_store_manager.Activities;
 
-import static com.sinhvien.orderdrinkapp.R.*;
+import static com.example.app_coffee_store_manager.R.*;
 
 import android.app.ActivityOptions;
 import android.content.Intent;

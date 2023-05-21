@@ -5,13 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.app_coffee_store_manager.DAO.BanAnDAO;
 import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
+import com.example.app_coffee_store_manager.DTO.BanAnDTO;
 import com.example.app_coffee_store_manager.DTO.DonDatDTO;
 import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
 import com.example.app_coffee_store_manager.R;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -28,6 +32,8 @@ public class AdapterDisplayStatistic extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.donDatDTOS = donDatDTOS;
+        nhanVienDAO = new NhanVienDAO(context);
+        banAnDAO = new BanAnDAO(context);
     }
 
     @Override
@@ -42,7 +48,7 @@ public class AdapterDisplayStatistic extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return donDatDTOS.get(position).getMaDonDat();
     }
 
     @Override
@@ -53,11 +59,30 @@ public class AdapterDisplayStatistic extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
+            viewHolder.txt_customstatistic_MaDon = (TextView)view.findViewById(R.id.txt_customstatistic_MaDon);
+            viewHolder.txt_customstatistic_NgayDat = (TextView)view.findViewById(R.id.txt_customstatistic_NgayDat);
+            viewHolder.txt_customstatistic_TenNV = (TextView)view.findViewById(R.id.txt_customstatistic_TenNV);
+            viewHolder.txt_customstatistic_TongTien = (TextView)view.findViewById(R.id.txt_customstatistic_TongTien);
+            viewHolder.txt_customstatistic_TrangThai = (TextView)view.findViewById(R.id.txt_customstatistic_TrangThai);
+            viewHolder.txt_customstatistic_BanDat = (TextView)view.findViewById(R.id.txt_customstatistic_BanDat);
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) view.getTag();
         }
         DonDatDTO donDatDTO = donDatDTOS.get(position);
+
+        viewHolder.txt_customstatistic_MaDon.setText("Mã đơn: "+donDatDTO.getMaDonDat());
+        viewHolder.txt_customstatistic_NgayDat.setText(donDatDTO.getNgayDat());
+        viewHolder.txt_customstatistic_TongTien.setText(donDatDTO.getTongTien()+" VNĐ");
+        if (donDatDTO.getTinhTrang().equals("true"))
+        {
+            viewHolder.txt_customstatistic_TrangThai.setText("Đã thanh toán");
+        }else {
+            viewHolder.txt_customstatistic_TrangThai.setText("Chưa thanh toán");
+        }
+        NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(donDatDTO.getMaNV());
+        viewHolder.txt_customstatistic_TenNV.setText(nhanVienDTO.getHOTENNV());
+        viewHolder.txt_customstatistic_BanDat.setText(banAnDAO.LayTenBanTheoMa(donDatDTO.getMaBan()));
 
         return view;
     }

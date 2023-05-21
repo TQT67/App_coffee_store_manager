@@ -1,5 +1,6 @@
 package com.example.app_coffee_store_manager.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,9 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
 import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class NhanVienDAO    {
     SQLiteDatabase database;
@@ -46,6 +44,7 @@ public class NhanVienDAO    {
                 CreateDatabase.TBL_NHANVIEN_MANV+" = "+manv,null);
         return ktra;
     }
+    @SuppressLint("Range")
     public int KiemTraDN(String tenDN, String matKhau){
         String query = "SELECT * FROM " +CreateDatabase.TBL_NHANVIEN+ " WHERE "
                 +CreateDatabase.TBL_NHANVIEN_TENDN +" = '"+ tenDN+"' AND "+CreateDatabase.TBL_NHANVIEN_MATKHAU +" = '" +matKhau +"'";
