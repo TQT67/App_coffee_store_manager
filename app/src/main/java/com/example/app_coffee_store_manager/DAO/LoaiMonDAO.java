@@ -1,8 +1,8 @@
 package com.example.app_coffee_store_manager.DAO;
 
-import com.example.app_coffee_store_manager.Activities.AddCategoryActivity;
+import androidx.fragment.app.FragmentActivity;
 
 public class LoaiMonDAO {
-    public LoaiMonDAO(AddCategoryActivity addCategoryActivity) {
+    public LoaiMonDAO(FragmentActivity addCategoryActivity) {
     }
 }
