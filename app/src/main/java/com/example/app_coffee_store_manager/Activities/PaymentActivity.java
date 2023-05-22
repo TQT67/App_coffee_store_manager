@@ -1,5 +1,6 @@
 package com.example.app_coffee_store_manager.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     int maban, madondat;
     FragmentManager fragmentManager;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,3 +86,34 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id){
+            case R.id.btn_payment_ThanhToan:
+                boolean ktraban = banAnDAO.CapNhatTinhTrangBan(maban,"false");
+                boolean ktradondat = donDatDAO.UpdateTThaiDonTheoMaBan(maban,"true");
+                boolean ktratongtien = donDatDAO.UpdateTongTienDonDat(madondat,String.valueOf(tongtien));
+                if(ktraban && ktradondat && ktratongtien){
+                    HienThiThanhToan();
+                    TXT_payment_TongTien.setText("0 VNĐ");
+                    Toast.makeText(getApplicationContext(),"Thanh toán thành công!",Toast.LENGTH_SHORT);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Lỗi thanh toán!",Toast.LENGTH_SHORT);
+                }
+                break;
+
+            case R.id.img_payment_backbtn:
+                finish();
+                break;
+        }
+    }
+
+    //hiển thị data lên gridview
+    private void HienThiThanhToan(){
+        madondat = (int) donDatDAO.LayMaDonTheoMaBan(maban,"false");
+        thanhToanDTOS = thanhToanDAO.LayDSMonTheoMaDon(madondat);
+        adapterDisplayPayment = new AdapterDisplayPayment(this,R.layout.custom_layout_paymentmenu,thanhToanDTOS);
+        gvDisplayPayment.setAdapter(adapterDisplayPayment);
+        adapterDisplayPayment.notifyDataSetChanged();
+    }
+}
