@@ -10,8 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.app_coffee_store_manager.DTO.MonDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.DTO.MonDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 

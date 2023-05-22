@@ -2,9 +2,7 @@ package com.example.app_coffee_store_manager.Fragments;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,27 +12,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.app_coffee_store_manager.Activities.AddCategoryActivity;
-import com.example.app_coffee_store_manager.Activities.AddMenuActivity;
-import com.example.app_coffee_store_manager.Activities.AddStaffActivity;
-import com.example.app_coffee_store_manager.Activities.HomeActivity;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayCategory;
-import com.example.app_coffee_store_manager.DAO.LoaiMonDAO;
-import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.Activities.AddCategoryActivity;
+import com.sinhvien.orderdrinkapp.Activities.HomeActivity;
+import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterDisplayCategory;
+import com.sinhvien.orderdrinkapp.DAO.LoaiMonDAO;
+import com.sinhvien.orderdrinkapp.DTO.LoaiMonDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 

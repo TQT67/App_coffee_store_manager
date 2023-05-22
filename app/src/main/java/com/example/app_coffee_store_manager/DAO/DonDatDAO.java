@@ -1,17 +1,12 @@
 package com.example.app_coffee_store_manager.DAO;
 
-
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Pair;
 
-import com.example.app_coffee_store_manager.DTO.ChiTietDonDatDTO;
-import com.example.app_coffee_store_manager.DTO.DonDatDTO;
-import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
+import com.sinhvien.orderdrinkapp.DTO.DonDatDTO;
+import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +32,6 @@ public class DonDatDAO {
         return madondat;
     }
 
-    @SuppressLint("Range")
     public List<DonDatDTO> LayDSDonDat(){
         List<DonDatDTO> donDatDTOS = new ArrayList<DonDatDTO>();
         String query = "SELECT * FROM "+CreateDatabase.TBL_DONDAT;
@@ -58,7 +52,6 @@ public class DonDatDAO {
         return donDatDTOS;
     }
 
-    @SuppressLint("Range")
     public List<DonDatDTO> LayDSDonDatNgay(String ngaythang){
         List<DonDatDTO> donDatDTOS = new ArrayList<DonDatDTO>();
         String query = "SELECT * FROM "+CreateDatabase.TBL_DONDAT+" WHERE "+CreateDatabase.TBL_DONDAT_NGAYDAT+" like '"+ngaythang+"'";
@@ -79,7 +72,6 @@ public class DonDatDAO {
         return donDatDTOS;
     }
 
-    @SuppressLint("Range")
     public long LayMaDonTheoMaBan(int maban, String tinhtrang){
         String query = "SELECT * FROM " +CreateDatabase.TBL_DONDAT+ " WHERE " +CreateDatabase.TBL_DONDAT_MABAN+ " = '" +maban+ "' AND "
                 +CreateDatabase.TBL_DONDAT_TINHTRANG+ " = '" +tinhtrang+ "' ";

@@ -12,8 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.DTO.LoaiMonDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class AdapterRecycleViewCategory extends RecyclerView.Adapter<AdapterRecy
     }
 
     @Override
-    public void onBindViewHolder(AdapterRecycleViewCategory.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         LoaiMonDTO loaiMonDTO = loaiMonDTOList.get(position);
         holder.txt_customcategory_TenLoai.setText(loaiMonDTO.getTenLoai());
         byte[] categoryimage = loaiMonDTO.getHinhAnh();

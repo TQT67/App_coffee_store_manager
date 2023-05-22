@@ -1,16 +1,7 @@
 package com.example.app_coffee_store_manager.DTO;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
-import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class NhanVienDTO {
+
     String HOTENNV,TENDN,MATKHAU,EMAIL,SDT,GIOITINH,NGAYSINH;
     int MANV,MAQUYEN;
 
@@ -85,5 +76,6 @@ public class NhanVienDTO {
     public void setNGAYSINH(String NGAYSINH) {
         this.NGAYSINH = NGAYSINH;
     }
+
 
 }

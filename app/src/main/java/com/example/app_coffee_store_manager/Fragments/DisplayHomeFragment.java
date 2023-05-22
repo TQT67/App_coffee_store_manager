@@ -1,35 +1,28 @@
 package com.example.app_coffee_store_manager.Fragments;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.example.app_coffee_store_manager.Activities.AddCategoryActivity;
-import com.example.app_coffee_store_manager.Activities.HomeActivity;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayCategory;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterRecycleViewCategory;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterRecycleViewStatistic;
-import com.example.app_coffee_store_manager.DAO.DonDatDAO;
-import com.example.app_coffee_store_manager.DAO.LoaiMonDAO;
-import com.example.app_coffee_store_manager.DTO.DonDatDTO;
-import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.Activities.AddCategoryActivity;
+import com.sinhvien.orderdrinkapp.Activities.HomeActivity;
+import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterRecycleViewCategory;
+import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterRecycleViewStatistic;
+import com.sinhvien.orderdrinkapp.DAO.DonDatDAO;
+import com.sinhvien.orderdrinkapp.DAO.LoaiMonDAO;
+import com.sinhvien.orderdrinkapp.DTO.DonDatDTO;
+import com.sinhvien.orderdrinkapp.DTO.LoaiMonDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

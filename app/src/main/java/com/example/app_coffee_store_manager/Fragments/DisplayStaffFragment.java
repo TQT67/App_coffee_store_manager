@@ -18,17 +18,14 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.app_coffee_store_manager.Activities.AddStaffActivity;
-import com.example.app_coffee_store_manager.Activities.HomeActivity;
-import com.example.app_coffee_store_manager.Activities.RegisterActivity;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayStaff;
-import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
-import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.Activities.AddStaffActivity;
+import com.sinhvien.orderdrinkapp.Activities.HomeActivity;
+import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterDisplayStaff;
+import com.sinhvien.orderdrinkapp.DAO.NhanVienDAO;
+import com.sinhvien.orderdrinkapp.DTO.NhanVienDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 

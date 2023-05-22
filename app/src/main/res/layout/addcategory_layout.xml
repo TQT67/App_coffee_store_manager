@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    tools:context=".Activities.AddCategoryActivity"
     android:orientation="vertical"
     android:padding="30dp"
     android:background="@color/colorPrimary"
@@ -38,6 +38,31 @@
         android:layout_marginTop="30dp"
         >
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtl_addcategory_TenLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Nhập tên loại"
+            app:hintTextColor="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:startIconDrawable="@drawable/ic_baseline_airline_seat_legroom_normal_24"
+            app:endIconTint="@color/black"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/black"
+            app:startIconTint="@color/black"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/muli"
+                android:hint="@string/addCategory"
+                android:inputType="text"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <ImageView
             android:id="@+id/img_addcategory_ThemHinh"
             android:layout_width="match_parent"
@@ -57,7 +82,7 @@
             android:text="Thêm Loại"
             android:textColor="@color/white"
             app:backgroundTint="@color/black"
-            />
+            tools:ignore="TextSizeCheck" />
 
     </LinearLayout>
 

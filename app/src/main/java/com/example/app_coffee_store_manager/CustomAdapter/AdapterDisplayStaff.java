@@ -1,7 +1,6 @@
 package com.example.app_coffee_store_manager.CustomAdapter;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.app_coffee_store_manager.DAO.QuyenDAO;
-import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.DAO.QuyenDAO;
+import com.sinhvien.orderdrinkapp.DTO.NhanVienDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 

@@ -1,18 +1,18 @@
 package com.example.app_coffee_store_manager.DAO;
 
-
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
+import com.sinhvien.orderdrinkapp.DTO.LoaiMonDTO;
+import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class LoaiMonDAO {
+
     SQLiteDatabase database;
     public LoaiMonDAO(Context context){
         CreateDatabase createDatabase = new CreateDatabase(context);
@@ -55,7 +55,6 @@ public class LoaiMonDAO {
         }
     }
 
-    @SuppressLint("Range")
     public List<LoaiMonDTO> LayDSLoaiMon(){
         List<LoaiMonDTO> loaiMonDTOList = new ArrayList<LoaiMonDTO>();
         String query = "SELECT * FROM " +CreateDatabase.TBL_LOAIMON;
@@ -73,7 +72,6 @@ public class LoaiMonDAO {
         return loaiMonDTOList;
     }
 
-    @SuppressLint("Range")
     public LoaiMonDTO LayLoaiMonTheoMa(int maloai){
         LoaiMonDTO loaiMonDTO = new LoaiMonDTO();
         String query = "SELECT * FROM " +CreateDatabase.TBL_LOAIMON+" WHERE "+CreateDatabase.TBL_LOAIMON_MALOAI+" = "+maloai;
@@ -88,4 +86,5 @@ public class LoaiMonDAO {
         }
         return loaiMonDTO;
     }
+
 }

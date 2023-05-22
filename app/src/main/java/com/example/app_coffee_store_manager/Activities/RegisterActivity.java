@@ -1,6 +1,6 @@
 package com.example.app_coffee_store_manager.Activities;
 
-import static com.example.app_coffee_store_manager.R.*;
+import static com.sinhvien.orderdrinkapp.R.*;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -66,3 +66,123 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    //Hàm quay về màn hình trước
+    public void backFromRegister(View view){
+
+        Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(findViewById(id.layoutRegister),"transition_signup");
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RegisterActivity.this,pairs);
+            startActivity(intent,options.toBundle());
+        }else {
+            startActivity(intent);
+        }
+    }
+
+    //truyền dữ liệu qua trang đk thứ 2 bằng bundle
+    public void byBundleNextSignupScreen(String hoTen, String tenDN, String eMail, String sDT, String matKhau){
+
+        Intent intent = new Intent(getApplicationContext(),Register2ndActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("hoten",hoTen);
+        bundle.putString("tendn",tenDN);
+        bundle.putString("email",eMail);
+        bundle.putString("sdt",sDT);
+        bundle.putString("matkhau",matKhau);
+        intent.putExtra(BUNDLE,bundle);
+
+        startActivity(intent);
+        overridePendingTransition(anim.slide_in_right, anim.slide_out_left);
+    }
+
+    //region Validate field
+    private boolean validateFullName(){
+        String val = TXTL_signup_HoVaTen.getEditText().getText().toString().trim();
+
+        if(val.isEmpty()){
+            TXTL_signup_HoVaTen.setError(getResources().getString(string.not_empty));
+            return false;
+        }else {
+            TXTL_signup_HoVaTen.setError(null);
+            TXTL_signup_HoVaTen.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateUserName(){
+        String val = TXTL_signup_TenDN.getEditText().getText().toString().trim();
+        String checkspaces = "\\A\\w{1,50}\\z";
+
+        if(val.isEmpty()){
+            TXTL_signup_TenDN.setError(getResources().getString(string.not_empty));
+            return false;
+        }else if(val.length()>50){
+            TXTL_signup_TenDN.setError("Phải nhỏ hơn 50 ký tự");
+            return false;
+        }else if(!val.matches(checkspaces)){
+            TXTL_signup_TenDN.setError("Không được cách chữ!");
+            return false;
+        }
+        else {
+            TXTL_signup_TenDN.setError(null);
+            TXTL_signup_TenDN.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateEmail(){
+        String val = TXTL_signup_Email.getEditText().getText().toString().trim();
+        String checkspaces = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
+
+        if(val.isEmpty()){
+            TXTL_signup_Email.setError(getResources().getString(string.not_empty));
+            return false;
+        }else if(!val.matches(checkspaces)){
+            TXTL_signup_Email.setError("Email không hợp lệ!");
+            return false;
+        }
+        else {
+            TXTL_signup_Email.setError(null);
+            TXTL_signup_Email.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validatePhone(){
+        String val = TXTL_signup_SDT.getEditText().getText().toString().trim();
+
+
+        if(val.isEmpty()){
+            TXTL_signup_SDT.setError(getResources().getString(string.not_empty));
+            return false;
+        }else if(val.length() != 10){
+            TXTL_signup_SDT.setError("Số điện thoại không hợp lệ!");
+            return false;
+        }
+        else {
+            TXTL_signup_SDT.setError(null);
+            TXTL_signup_SDT.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validatePassWord(){
+        String val = TXTL_signup_MatKhau.getEditText().getText().toString().trim();
+
+        if(val.isEmpty()){
+            TXTL_signup_MatKhau.setError(getResources().getString(string.not_empty));
+            return false;
+        }else if(!PASSWORD_PATTERN.matcher(val).matches()){
+            TXTL_signup_MatKhau.setError("Mật khẩu ít nhất 6 ký tự!");
+            return false;
+        }
+        else {
+            TXTL_signup_MatKhau.setError(null);
+            TXTL_signup_MatKhau.setErrorEnabled(false);
+            return true;
+        }
+    }
+    //endregion
+}

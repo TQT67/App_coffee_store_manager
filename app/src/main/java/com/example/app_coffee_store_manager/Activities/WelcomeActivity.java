@@ -8,7 +8,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

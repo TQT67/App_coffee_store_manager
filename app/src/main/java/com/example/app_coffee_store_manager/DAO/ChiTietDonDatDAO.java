@@ -1,20 +1,21 @@
 package com.example.app_coffee_store_manager.DAO;
-import android.annotation.SuppressLint;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.app_coffee_store_manager.DTO.ChiTietDonDatDTO;
-import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
+import com.sinhvien.orderdrinkapp.DTO.ChiTietDonDatDTO;
+import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
 
 public class ChiTietDonDatDAO {
-    SQLiteDatabase database;
 
+    SQLiteDatabase database;
     public ChiTietDonDatDAO(Context context){
         CreateDatabase createDatabase = new CreateDatabase(context);
         database = createDatabase.open();
     }
+
     public boolean KiemTraMonTonTai(int madondat, int mamon){
         String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+
                 " = " +mamon+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "+madondat;
@@ -26,7 +27,6 @@ public class ChiTietDonDatDAO {
         }
     }
 
-    @SuppressLint("Range")
     public int LaySLMonTheoMaDon(int madondat, int mamon){
         int soluong = 0;
         String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+

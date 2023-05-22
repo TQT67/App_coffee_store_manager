@@ -10,10 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
-import com.example.app_coffee_store_manager.DAO.QuyenDAO;
-import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.DAO.NhanVienDAO;
+import com.sinhvien.orderdrinkapp.DAO.QuyenDAO;
+import com.sinhvien.orderdrinkapp.DTO.NhanVienDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.Calendar;
 

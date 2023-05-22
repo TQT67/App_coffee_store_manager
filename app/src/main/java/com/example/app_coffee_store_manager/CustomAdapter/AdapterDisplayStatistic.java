@@ -5,17 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.app_coffee_store_manager.DAO.BanAnDAO;
-import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
-import com.example.app_coffee_store_manager.DTO.BanAnDTO;
-import com.example.app_coffee_store_manager.DTO.DonDatDTO;
-import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.R;
-
-import org.w3c.dom.Text;
+import com.sinhvien.orderdrinkapp.DAO.BanAnDAO;
+import com.sinhvien.orderdrinkapp.DAO.NhanVienDAO;
+import com.sinhvien.orderdrinkapp.DTO.DonDatDTO;
+import com.sinhvien.orderdrinkapp.DTO.NhanVienDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 

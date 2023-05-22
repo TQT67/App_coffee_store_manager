@@ -13,8 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.DAO.NhanVienDAO;
+import com.sinhvien.orderdrinkapp.R;
 
 public class LoginActivity extends AppCompatActivity {
     Button BTN_login_DangNhap, BTN_login_DangKy;

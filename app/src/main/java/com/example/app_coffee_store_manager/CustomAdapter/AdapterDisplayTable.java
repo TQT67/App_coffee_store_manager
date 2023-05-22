@@ -1,6 +1,5 @@
 package com.example.app_coffee_store_manager.CustomAdapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,23 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.app_coffee_store_manager.Activities.HomeActivity;
-import com.example.app_coffee_store_manager.Activities.PaymentActivity;
-import com.example.app_coffee_store_manager.DAO.BanAnDAO;
-import com.example.app_coffee_store_manager.DAO.DonDatDAO;
-import com.example.app_coffee_store_manager.DTO.BanAnDTO;
-import com.example.app_coffee_store_manager.DTO.DonDatDTO;
-import com.example.app_coffee_store_manager.Fragments.DisplayCategoryFragment;
-import com.example.app_coffee_store_manager.Fragments.DisplayMenuFragment;
-import com.example.app_coffee_store_manager.Fragments.DisplayTableFragment;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.Activities.HomeActivity;
+import com.sinhvien.orderdrinkapp.Activities.PaymentActivity;
+import com.sinhvien.orderdrinkapp.DAO.BanAnDAO;
+import com.sinhvien.orderdrinkapp.DAO.DonDatDAO;
+import com.sinhvien.orderdrinkapp.DTO.BanAnDTO;
+import com.sinhvien.orderdrinkapp.DTO.DonDatDTO;
+import com.sinhvien.orderdrinkapp.Fragments.DisplayCategoryFragment;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

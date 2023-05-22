@@ -12,30 +12,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.app_coffee_store_manager.Activities.AddCategoryActivity;
-import com.example.app_coffee_store_manager.Activities.AddMenuActivity;
-import com.example.app_coffee_store_manager.Activities.AmountMenuActivity;
-import com.example.app_coffee_store_manager.Activities.HomeActivity;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayCategory;
-import com.example.app_coffee_store_manager.CustomAdapter.AdapterDisplayMenu;
-import com.example.app_coffee_store_manager.DAO.MonDAO;
-import com.example.app_coffee_store_manager.DTO.MonDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.Activities.AddMenuActivity;
+import com.sinhvien.orderdrinkapp.Activities.AmountMenuActivity;
+import com.sinhvien.orderdrinkapp.Activities.HomeActivity;
+import com.sinhvien.orderdrinkapp.CustomAdapter.AdapterDisplayMenu;
+import com.sinhvien.orderdrinkapp.DAO.MonDAO;
+import com.sinhvien.orderdrinkapp.DTO.MonDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 
@@ -118,7 +111,7 @@ public class DisplayMenuFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    getParentFragmentManager().popBackStack("hienthiloai", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                     getParentFragmentManager().popBackStack("hienthiloai", FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 }
                 return false;
             }

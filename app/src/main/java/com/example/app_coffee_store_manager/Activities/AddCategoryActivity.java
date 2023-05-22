@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.example.app_coffee_store_manager.DAO.LoaiMonDAO;
 import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.R;
+import com.example.app_coffee_store_manager.BuildConfig ;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;

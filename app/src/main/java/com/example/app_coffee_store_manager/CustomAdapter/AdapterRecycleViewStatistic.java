@@ -9,14 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app_coffee_store_manager.DAO.BanAnDAO;
-import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
-import com.example.app_coffee_store_manager.DTO.DonDatDTO;
-import com.example.app_coffee_store_manager.DTO.LoaiMonDTO;
-import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.R;
-
-import org.w3c.dom.Text;
+import com.sinhvien.orderdrinkapp.DAO.BanAnDAO;
+import com.sinhvien.orderdrinkapp.DAO.NhanVienDAO;
+import com.sinhvien.orderdrinkapp.DTO.DonDatDTO;
+import com.sinhvien.orderdrinkapp.DTO.NhanVienDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 
@@ -45,7 +42,7 @@ public class AdapterRecycleViewStatistic extends RecyclerView.Adapter<AdapterRec
     }
 
     @Override
-    public void onBindViewHolder(AdapterRecycleViewStatistic.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         DonDatDTO donDatDTO = donDatDTOList.get(position);
         holder.txt_customstatistic_MaDon.setText("Mã đơn: "+donDatDTO.getMaDonDat());
         holder.txt_customstatistic_NgayDat.setText(donDatDTO.getNgayDat());

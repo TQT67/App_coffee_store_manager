@@ -1,12 +1,5 @@
 package com.example.app_coffee_store_manager.Activities;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,13 +9,20 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.material.navigation.NavigationView;
-import com.example.app_coffee_store_manager.Fragments.DisplayHomeFragment;
-import com.example.app_coffee_store_manager.Fragments.DisplayCategoryFragment;
-import com.example.app_coffee_store_manager.Fragments.DisplayStaffFragment;
-import com.example.app_coffee_store_manager.Fragments.DisplayStatisticFragment;
-import com.example.app_coffee_store_manager.Fragments.DisplayTableFragment;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.Fragments.DisplayCategoryFragment;
+import com.sinhvien.orderdrinkapp.Fragments.DisplayHomeFragment;
+import com.sinhvien.orderdrinkapp.Fragments.DisplayStaffFragment;
+import com.sinhvien.orderdrinkapp.Fragments.DisplayStatisticFragment;
+import com.sinhvien.orderdrinkapp.Fragments.DisplayTableFragment;
+import com.sinhvien.orderdrinkapp.R;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     MenuItem selectedFeature, selectedManager;
@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //region thuộc tính bên view
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView = (NavigationView)findViewById(R.id.navigation_view_trangchu);
-        toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         View view = navigationView.getHeaderView(0);
         TXT_menu_tennv = (TextView) view.findViewById(R.id.txt_menu_tennv);
         //endregion
@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         //tạo nút mở navigation
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar
-                ,R.string.opentoggle,R.string.closetoggle){
+        ,R.string.opentoggle,R.string.closetoggle){
             @Override
             public void onDrawerOpened(View drawerView) {    super.onDrawerOpened(drawerView); }
 

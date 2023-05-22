@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Activities.AddMenuActivity"
     android:orientation="vertical"
     android:padding="30dp"
     android:background="@color/colorPrimary"
@@ -43,11 +44,73 @@
             android:scaleType="fitXY"
             android:src="@drawable/drinkfood" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtl_addmenu_TenMon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên món"
+            app:startIconDrawable="@drawable/ic_baseline_fastfood_24"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxStrokeColor="@color/black"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtl_addmenu_GiaTien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá tiền"
+            app:startIconDrawable="@drawable/ic_baseline_attach_money_24"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxStrokeColor="@color/black"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtl_addmenu_LoaiMon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Loại món"
+                app:startIconDrawable="@drawable/ic_baseline_restaurant_menu_24"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/black"
+                android:textColorHint="@color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/black"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
                 android:id="@+id/layout_trangthaimon"
@@ -56,7 +119,7 @@
                 android:layout_below="@id/txtl_addmenu_LoaiMon"
                 android:layout_marginTop="10dp"
                 android:visibility="gone"
-                tools:ignore="UnknownId">
+                >
                 <TextView
                     android:id="@+id/txt_addmenu_TinhTrang"
                     android:layout_width="wrap_content"
@@ -110,13 +173,13 @@
 
 </LinearLayout>
 
-<!--<Spinner-->
-<!--android:id="@+id/spn_addmenu_themloai"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_alignParentLeft="true"-->
-<!--android:layout_toStartOf="@id/btnimg_addmenu_nutthemloai"-->
-<!--android:layout_toLeftOf="@id/btnimg_addmenu_nutthemloai"-->
-<!--android:layout_centerInParent="true"-->
-<!--    >-->
-<!--</Spinner>-->
+    <!--<Spinner-->
+    <!--android:id="@+id/spn_addmenu_themloai"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_toStartOf="@id/btnimg_addmenu_nutthemloai"-->
+    <!--android:layout_toLeftOf="@id/btnimg_addmenu_nutthemloai"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--    >-->
+    <!--</Spinner>-->

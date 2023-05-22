@@ -1,5 +1,7 @@
 package com.example.app_coffee_store_manager.Activities;
 
+.Activities;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.example.app_coffee_store_manager.DAO.NhanVienDAO;
 import com.example.app_coffee_store_manager.DTO.NhanVienDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;

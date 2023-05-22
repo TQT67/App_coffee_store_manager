@@ -1,13 +1,12 @@
 package com.example.app_coffee_store_manager.DAO;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.app_coffee_store_manager.DTO.MonDTO;
-import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
+import com.sinhvien.orderdrinkapp.DTO.MonDTO;
+import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,7 @@ public class MonDAO {
             return false;
         }
     }
+
     public boolean XoaMon(int mamon){
         long ktra = database.delete(CreateDatabase.TBL_MON,CreateDatabase.TBL_MON_MAMON+ " = " +mamon
                 ,null);
@@ -44,6 +44,7 @@ public class MonDAO {
             return false;
         }
     }
+
     public boolean SuaMon(MonDTO monDTO,int mamon){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_MON_MALOAI,monDTO.getMaLoai());
@@ -61,7 +62,6 @@ public class MonDAO {
         }
     }
 
-    @SuppressLint("Range")
     public List<MonDTO> LayDSMonTheoLoai(int maloai){
         List<MonDTO> monDTOList = new ArrayList<MonDTO>();
         String query = "SELECT * FROM " +CreateDatabase.TBL_MON+ " WHERE " +CreateDatabase.TBL_MON_MALOAI+ " = '" +maloai+ "' ";
@@ -82,7 +82,6 @@ public class MonDAO {
         return monDTOList;
     }
 
-    @SuppressLint("Range")
     public MonDTO LayMonTheoMa(int mamon){
         MonDTO monDTO = new MonDTO();
         String query = "SELECT * FROM "+CreateDatabase.TBL_MON+" WHERE "+CreateDatabase.TBL_MON_MAMON+" = "+mamon;
@@ -100,4 +99,5 @@ public class MonDAO {
         }
         return monDTO;
     }
+
 }

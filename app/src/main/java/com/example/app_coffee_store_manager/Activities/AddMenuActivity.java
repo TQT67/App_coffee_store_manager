@@ -23,9 +23,9 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.example.app_coffee_store_manager.*;
 import com.example.app_coffee_store_manager.DAO.MonDAO;
 import com.example.app_coffee_store_manager.DTO.MonDTO;
-import com.example.app_coffee_store_manager.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;

@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.app_coffee_store_manager.DTO.ThanhToanDTO;
-import com.example.app_coffee_store_manager.R;
+import com.sinhvien.orderdrinkapp.DTO.ThanhToanDTO;
+import com.sinhvien.orderdrinkapp.R;
 
 import java.util.List;
 

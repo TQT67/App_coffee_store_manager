@@ -1,4 +1,4 @@
-package com.example.app_coffee_store_manager.DataBase;
+package com.example.app_coffee_store_manager.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

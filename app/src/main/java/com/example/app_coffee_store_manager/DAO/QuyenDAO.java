@@ -1,14 +1,12 @@
 package com.example.app_coffee_store_manager.DAO;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.app_coffee_store_manager.DTO.QuyenDTO;
-import com.example.app_coffee_store_manager.DataBase.CreateDatabase;
+import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
 public class QuyenDAO {
 
     SQLiteDatabase database;
@@ -22,7 +20,7 @@ public class QuyenDAO {
         contentValues.put(CreateDatabase.TBL_QUYEN_TENQUYEN,tenquyen);
         database.insert(CreateDatabase.TBL_QUYEN,null,contentValues);
     }
-
+    
 
     public String LayTenQuyenTheoMa(int maquyen){
         String tenquyen ="";
@@ -36,4 +34,3 @@ public class QuyenDAO {
         return tenquyen;
     }
 }
-
